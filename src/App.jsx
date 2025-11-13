@@ -1,5 +1,4 @@
-import { useState } from 'react'
-
+import { LeerJuegos } from './components/leerJuegos'
 import './styles/App.css'
 
 function App() {
@@ -11,6 +10,7 @@ function App() {
       </head>
 
       <body>
+
         <section className='header'>
           <div id='header'>
             <h1>Game Tracker</h1>
@@ -20,6 +20,13 @@ function App() {
             <h6>Boton de agregar juego</h6>
           </div>
         </section>
+
+        <section className='juegos'>
+          <div id='juegos'>
+            <LeerJuegos juegos={juegos} />
+          </div>
+        </section>
+
       </body>
     </>
   )

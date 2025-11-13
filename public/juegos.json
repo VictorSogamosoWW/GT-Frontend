@@ -7,7 +7,7 @@
     "hours": 45,
     "status": "In Progress",
     "rating": 5,
-    "image": "https://images.unsplash.com/photo-1606813902916-dce093cda1a2?w=600&h=400"
+    "imagen": "https://images.unsplash.com/photo-1606813902916-dce093cda1a2?w=600&h=400"
   },
   {
     "_id": "6730c1b8a5123e001b0a1a1b",
@@ -17,6 +17,6 @@
     "hours": 85,
     "status": "Completed",
     "rating": 5,
-    "image": "https://images.unsplash.com/photo-1649693896030-60924f6e7249?w=600&h=400"
+    "imagen": "https://images.unsplash.com/photo-1649693896030-60924f6e7249?w=600&h=400"
   }
 ]
