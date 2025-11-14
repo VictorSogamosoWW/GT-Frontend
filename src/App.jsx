@@ -1,16 +1,11 @@
 import { LeerJuegos } from './components/leerJuegos'
 import './styles/App.css'
+import './styles/TarjetaJuego.css'
 
 function App() {
 
   return (
     <>
-      <head>
-        <title>Game Tracker</title>
-      </head>
-
-      <body>
-
         <section className='header'>
           <div id='header'>
             <h1>Game Tracker</h1>
@@ -23,11 +18,9 @@ function App() {
 
         <section className='juegos'>
           <div id='juegos'>
-            <LeerJuegos juegos={juegos} />
+            <LeerJuegos/>
           </div>
         </section>
-
-      </body>
     </>
   )
 }

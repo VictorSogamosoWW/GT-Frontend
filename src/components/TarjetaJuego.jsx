@@ -1,14 +1,13 @@
 export function TarjetaJuego({juego}){
     return(
         <div className='tarjeta_juego'>
-            <img src={juego.imagen} alt={juego.name} />
-
             <h3>{juego.name}</h3>
-            <p>{juego.publisher}</p>
-            <p>{juego.type}</p>
-            <p>{juego.status}</p>
-            <p>{juego.hours} horas jugadas</p>
-            <p>{juego.rating} estrellas</p>
+            <img src={juego.imagen} alt={juego.name} />
+            <p>Publicado por: {juego.publisher}</p>
+            <p>Tipo: {juego.type}</p>
+            <p>Estado: {juego.status}</p>
+            <p>Horas jugadas: {juego.hours}</p>
+            <p>Rating: {juego.rating} estrellas</p>
         </div>
     );
 }
