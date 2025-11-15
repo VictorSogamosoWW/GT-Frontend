@@ -1,19 +1,14 @@
-import { LeerJuegos } from './components/leerJuegos'
+import { LeerJuegos } from './components/juegos/LeerJuegos.jsx'
 import './styles/App.css'
 import './styles/TarjetaJuego.css'
+import Header from './components/header/Header.jsx'
 
 function App() {
 
   return (
     <>
         <section className='header'>
-          <div id='header'>
-            <h1>Game Tracker</h1>
-            <p>Tu registro personal de juegos</p>
-          </div>
-          <div id="header_boton">
-            <h6>Boton de agregar juego</h6>
-          </div>
+          <Header onAgregar={() => console.log("Agregar juego")} />
         </section>
 
         <section className='juegos'>
