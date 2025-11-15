@@ -5,11 +5,18 @@ export function LeerJuegos() {
     const [juegos, setJuegos] = useState([]);
 
     useEffect(() => {
-        fetch("/juegos.json")
-            .then((res)=>res.json())
-            .then((data)=>setJuegos(data))
-            .catch((error)=>console.error("Error al cargar los juegos:", error));
-            
+        async function cargarJuegos() {
+            try {
+                const res = await fetch("http://localhost:3000/juegos");
+                const data = await res.json();
+                console.log("Datos recibidos del backend:", data);
+                setJuegos(data);
+            } catch (error) {
+                console.error("Error al cargar los juegos:", error);
+            }
+        }
+
+        cargarJuegos();
     }, []);
 
     return (

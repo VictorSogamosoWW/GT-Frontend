@@ -6,8 +6,8 @@ export function TarjetaJuego({juego}){
             <p>Publicado por: {juego.publisher}</p>
             <p>Tipo: {juego.type}</p>
             <p>Estado: {juego.status}</p>
-            <p>Horas jugadas: {juego.hours}</p>
-            <p>Rating: {juego.rating} estrellas</p>
+            <p>Horas jugadas: {juego.hoursPlayed}</p>
+            <p>Rating: {juego.rating}</p>
         </div>
     );
 }
