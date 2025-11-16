@@ -3,6 +3,7 @@ import Header from "../header/Header";
 import { LeerJuegos } from "./LeerJuegos";
 import { CrearJuego } from "./CrearJuego";
 import { obtenerJuegos, crearJuego } from "../../api/juegosAPI";
+import '../../styles/JuegosManager.css';
 
 export function JuegosManager(){
     const [mostarForm, setMostrarForm] = useState(false);

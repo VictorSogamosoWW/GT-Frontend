@@ -1,0 +1,8 @@
+.listaJuegos{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50%, 50%));
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}

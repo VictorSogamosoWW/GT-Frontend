@@ -1,4 +1,5 @@
 import { TarjetaJuego } from './TarjetaJuego.jsx';
+import '../../styles/LeerJuegos.css';
 
 export function LeerJuegos({ juegos }) {
     return (
