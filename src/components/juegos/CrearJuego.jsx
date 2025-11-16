@@ -11,9 +11,19 @@ export function CrearJuego({ onCerrar, onCreando}){
     });
 
     function actualizarValor(e){
+        let valor = e.target.value;
+
+        if(e.target.name === "rating" || e.target.name === "hoursPlayed"){
+            valor = Number(valor)
+        }
+
+        if (e.target.name === "status"){
+            valor = valor === "true";
+        }
+
         setNuevoJuego({
             ...nuevoJuego,
-            [e.target.name]: e.target.value
+            [e.target.name]: valor
         });
     }
 
@@ -46,6 +56,7 @@ export function CrearJuego({ onCerrar, onCreando}){
 
             <form onSubmit={guardarJuego}>
 
+               <label htmlFor="name">Nombre del juego:</label>
                <input
                type="text"
                name="name"
@@ -54,6 +65,7 @@ export function CrearJuego({ onCerrar, onCreando}){
                onChange={actualizarValor}
                />
 
+               <label htmlFor="publisher">Desarrollador:</label>
                <input 
                type="text"
                name="publisher"
@@ -62,6 +74,7 @@ export function CrearJuego({ onCerrar, onCreando}){
                onChange={actualizarValor}
                />
 
+               <label htmlFor="type">Tipo:</label>
                <input
                     type="text"
                     name="type"
@@ -70,6 +83,7 @@ export function CrearJuego({ onCerrar, onCreando}){
                     onChange={actualizarValor}
                 />
 
+               <label htmlFor="imagen">URL de la imagen:</label>
                 <input
                     type="text"
                     name="imagen"
@@ -78,22 +92,30 @@ export function CrearJuego({ onCerrar, onCreando}){
                     onChange={actualizarValor}
                 />
 
+                <label htmlFor="hoursPlayed">Horas jugadas:</label>
                  <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
                     name="hoursPlayed"
                     placeholder="Horas jugadas"
                     value={nuevoJuego.hoursPlayed}
                     onChange={actualizarValor}
                 />
 
-                <input
-                    type="number"
+                <label htmlFor="rating">Calificación:</label>
+                <select
                     name="rating"
-                    placeholder="Calificación"
                     value={nuevoJuego.rating}
                     onChange={actualizarValor}
-                />
+                    >
+                    <option value={1}>1/5</option>
+                    <option value={2}>2/5</option>
+                    <option value={3}>3/5</option>
+                    <option value={4}>4/5</option>
+                    <option value={5}>5/5</option>
+                </select>
 
+                <label htmlFor="status">Estado:</label>
                 <select
                     name="status"
                     value={nuevoJuego.status}
