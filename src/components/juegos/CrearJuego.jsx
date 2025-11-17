@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import '../../Styles/CrearJuego.css'
+import RatingEstrellas from './RatingEstrellas.jsx'
 
 export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
     const [nuevoJuego, setNuevoJuego] = useState(juegoInicial || {
@@ -45,6 +46,13 @@ export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
         }
     }
 
+    function actualizarRating(valor){
+        setNuevoJuego({
+            ...nuevoJuego,
+            rating: valor,
+        });
+    }
+
     return (
         <div className="modal-overlay">
             <div className="modal-content">
@@ -55,13 +63,13 @@ export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
 
                 <form onSubmit={guardarJuego}>
                     <label>Nombre:</label>
-                    <input name="name" value={nuevoJuego.name} onChange={actualizarValor} />
+                    <input name="name" value={nuevoJuego.name} onChange={actualizarValor} required/>
 
                     <label>Desarrollador:</label>
-                    <input name="publisher" value={nuevoJuego.publisher} onChange={actualizarValor} />
+                    <input name="publisher" value={nuevoJuego.publisher} onChange={actualizarValor} required/>
 
                     <label>Tipo:</label>
-                    <input name="type" value={nuevoJuego.type} onChange={actualizarValor} />
+                    <input name="type" value={nuevoJuego.type} onChange={actualizarValor} required/>
 
                     <label>Imagen (URL):</label>
                     <input name="imagen" value={nuevoJuego.imagen} onChange={actualizarValor} />
@@ -70,13 +78,8 @@ export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
                     <input name="hoursPlayed" inputMode="numeric" value={nuevoJuego.hoursPlayed} onChange={actualizarValor} />
 
                     <label>Calificación:</label>
-                    <select name="rating" value={nuevoJuego.rating} onChange={actualizarValor}>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                    </select>
+
+                    <RatingEstrellas rating={nuevoJuego.rating} setRating={actualizarRating}/>
 
                     <label>Estado:</label>
                     <select name="status" value={String(nuevoJuego.status)} onChange={actualizarValor}>
