@@ -1,9 +1,20 @@
 import '../../styles/TarjetaJuego.css'
+import { useState } from 'react';
 import RatingEstrellasStatic from './RatingEstrellasStatic.jsx'
+import Comentarios from '../comentarios/Comentarios.jsx'
 
-export function TarjetaJuego({juego, onEditar, onEliminar}){
-    return(
-        <div className='tarjeta_juego'>
+export function TarjetaJuego({juego, onEditar, onEliminar}) {
+    if (!juego) return null;
+
+    const [expandida, setExpandida] = useState(false);
+
+    function toggleExpansion(e) {
+        if(e.target.closest("button") || e.target.closest("textarea")) return;
+        setExpandida(!expandida);
+    }
+
+    return (
+        <div className={'tarjeta_juego ' + (expandida ? 'expandida' : '')} onClick={toggleExpansion}>
             <div className='imagen'>
                 <img src={juego.imagen} alt={juego.name} />
             </div>
@@ -19,6 +30,13 @@ export function TarjetaJuego({juego, onEditar, onEliminar}){
                     <button onClick={() => onEliminar(juego._id)}>🗑️</button>
                 </div>
             </div>
+
+            {expandida && (
+                <div className='comentarios_expandida' onClick={(e)=> e.stopPropagation()}>
+                    <button className="cerrar" onClick={() => setExpandida(false)}>X</button>
+                    <Comentarios idGame={juego._id} />
+                </div>
+            )}
         </div>
     );
 }
