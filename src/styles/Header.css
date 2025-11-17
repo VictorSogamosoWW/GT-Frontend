@@ -5,3 +5,18 @@
     justify-content: center;
     width: 100%;
 }
+
+button.agregar_juego{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.agregar_juego:hover{
+    background-color: #3467a3;
+    transform: scale(1.03);
+}

@@ -80,8 +80,8 @@ export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
 
                     <label>Estado:</label>
                     <select name="status" value={String(nuevoJuego.status)} onChange={actualizarValor}>
-                        <option value={false}>No terminado</option>
-                        <option value={true}>Terminado</option>
+                        <option value="false">No terminado</option>
+                        <option value="true">Terminado</option>
                     </select>
 
                     <button type="submit" className="btn-guardar">Guardar</button>

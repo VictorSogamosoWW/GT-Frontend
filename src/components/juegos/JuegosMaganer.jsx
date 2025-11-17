@@ -48,6 +48,15 @@ export function JuegosManager(){
         setMostrarForm(true);
     }
 
+    async function eliminar(id){
+        try{
+            await eliminarJuego(id);
+            await cargarJuegos();
+        } catch (error) {
+            console.error("Error al eliminar el juego: ", error);
+        }
+    }    
+
     return(
         <>
             <section className='header'>
@@ -60,7 +69,7 @@ export function JuegosManager(){
 
             <section className='juegos'>
                 <div id='juegos'>
-                    <LeerJuegos juegos={juegos} onEditar={abrirEdicion}/>
+                    <LeerJuegos juegos={juegos} onEditar={abrirEdicion} onEliminar={eliminar}/>
                 </div>
             </section>
         

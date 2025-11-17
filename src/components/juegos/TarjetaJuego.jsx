@@ -13,7 +13,7 @@ export function TarjetaJuego({juego, onEditar, onEliminar}){
                 <p>Rating: {juego.rating}</p>
                 <p>Publicado por: {juego.publisher}</p>
                 <p>Tipo: {juego.type}</p>
-                <p>Estado: {juego.status}</p>
+                <p>Estado: {juego.status ? "Terminado" : "No terminado"}</p>
                 <p>Horas jugadas: {juego.hoursPlayed}</p>
             </div>
         </div>

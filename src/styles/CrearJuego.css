@@ -17,7 +17,7 @@ h2 {
 
 
 .modal-content {
-    background: white;
+    background: #1E293B;
     padding: 20px 30px;
     border-radius: 12px;
     width: 380px;
@@ -59,9 +59,13 @@ h2 {
 .btn-guardar {
     padding: 10px;
     margin-top: 10px;
-    background: #4caf50;
+    background: #3B82F6;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background: #1D4ED8;
 }
