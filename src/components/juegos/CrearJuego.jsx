@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import '../../Styles/CrearJuego.css'
 
-export function CrearJuego({ onCerrar, onCreando }) {
-    const [nuevoJuego, setNuevoJuego] = useState({
+export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
+    const [nuevoJuego, setNuevoJuego] = useState(juegoInicial || {
         name: "",
         publisher: "",
         type: "",
@@ -11,6 +11,12 @@ export function CrearJuego({ onCerrar, onCreando }) {
         rating: 0,
         imagen: ""
     });
+
+    useEffect(() => {
+        if (juegoInicial) {
+            setNuevoJuego(juegoInicial);
+        }
+    }, [juegoInicial]);
 
     function actualizarValor(e) {
         let valor = e.target.value;
@@ -45,7 +51,7 @@ export function CrearJuego({ onCerrar, onCreando }) {
 
                 <button className="cerrar" onClick={onCerrar}>X</button>
 
-                <h2>Agregar nuevo juego</h2>
+                <h2>{juegoInicial ? "Editar juego" : "Agregar nuevo juego"}</h2>
 
                 <form onSubmit={guardarJuego}>
                     <label>Nombre:</label>
@@ -73,7 +79,7 @@ export function CrearJuego({ onCerrar, onCreando }) {
                     </select>
 
                     <label>Estado:</label>
-                    <select name="status" value={nuevoJuego.status} onChange={actualizarValor}>
+                    <select name="status" value={String(nuevoJuego.status)} onChange={actualizarValor}>
                         <option value={false}>No terminado</option>
                         <option value={true}>Terminado</option>
                     </select>

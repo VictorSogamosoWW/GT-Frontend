@@ -1,6 +1,6 @@
 import '../../styles/TarjetaJuego.css'
 
-export function TarjetaJuego({juego}){
+export function TarjetaJuego({juego, onEditar, onEliminar}){
     return(
         <div className='tarjeta_juego'>
             <div className='imagen'>
@@ -8,6 +8,8 @@ export function TarjetaJuego({juego}){
             </div>
             <div className='info'>
                 <h3>{juego.name}</h3>
+                <button onClick={() => onEditar(juego)}>Editar</button>
+                <button onClick={() => onEliminar(juego._id)}>Eliminar</button>
                 <p>Rating: {juego.rating}</p>
                 <p>Publicado por: {juego.publisher}</p>
                 <p>Tipo: {juego.type}</p>

@@ -28,3 +28,35 @@ export async function crearJuego(juego){
         throw error;
     }
 }
+
+export async function actualizarJuego(id, data){
+    try{
+        const res = await fetch(`http://localhost:3000/juegos/${id}`,{
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data),
+        });
+
+        if (!res.ok) throw new Error("Error al editar el juego");
+
+        return await res.json();
+    }catch(error){
+        console.error("Error al editar el juego: ", error);
+        throw error;
+    }
+}
+
+export async function eliminarJuego(id){
+    try{
+        const res = await fetch(`http://localhost:3000/juegos/${id}`, {
+            method: "DELETE"
+        });
+
+        if (!res.ok) throw new Error("Error al eliminar el juego");
+
+        return await res.json();
+    }catch(error){
+        console.error("Error al eliminar el juego: ", error);
+        throw error;
+    }
+}
