@@ -16,7 +16,8 @@ export function TarjetaJuego({juego, onEditar, onEliminar}) {
     return (
         <div className={'tarjeta_juego ' + (expandida ? 'expandida' : '')} onClick={toggleExpansion}>
             <div className='imagen'>
-                <img src={juego.imagen} alt={juego.name} />
+                <img src={`${juego.imagen}`} alt={juego.name} />
+                {console.log(juego.imagen)}
             </div>
             <div className='info'>
                 <h3>{juego.name}</h3>
