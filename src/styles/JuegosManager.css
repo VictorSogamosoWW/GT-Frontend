@@ -1,8 +1,3 @@
-body {
-  background-color: lightgray;
-  margin-top: 0;
-  margin: 0;
-}
  
 section.header{
   display: flex;
@@ -41,16 +36,16 @@ section.header div#header_boton{
 
 section.juegos{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   background-color: #0B1221;
   box-sizing: border-box;
+  align-items: center;
 }
 
 section.juegos div#juegos{
   width: 100%;
-  max-width: 1200px;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -61,4 +56,18 @@ section div.juegos{
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.input-busqueda {
+  width: 80%;
+  padding: 8px;
+  margin-top: 10px;
+  display: block;
+  border-radius: 6px;
+  border: none;
+  background: #1F2937;
+  color: white;
+}
+.input-busqueda:focus {
+  outline: 2px solid #3B82F6;
 }

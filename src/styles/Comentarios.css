@@ -1,0 +1,13 @@
+div.comentarios_expandida{
+    width: 100%;
+}
+
+div.comentarios_expandida div.comentarios h4{
+    text-align: center;
+}
+
+div.comentarios_expandida div.comentarios form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

@@ -10,6 +10,10 @@ export function JuegosManager(){
     const [modoEdicion, setModoEdicion] = useState(false);
     const [juegos, setJuegos] = useState([]);
     const [juegoEditando, setJuegoEditando] = useState(null);
+    const [busqueda, setBusqueda] = useState('');
+    const juegosFiltrados = juegos.filter(juego => 
+        juego.name.toLowerCase().includes(busqueda.toLowerCase())
+    );
 
     useEffect(()=>{
         cargarJuegos();
@@ -68,8 +72,9 @@ export function JuegosManager(){
             )}
 
             <section className='juegos'>
+                <input id="Busqueda" type="text" placeholder="Buscar juego..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)} className="input-busqueda"/>
                 <div id='juegos'>
-                    <LeerJuegos juegos={juegos} onEditar={abrirEdicion} onEliminar={eliminar}/>
+                    <LeerJuegos juegos={juegosFiltrados || juegos} onEditar={abrirEdicion} onEliminar={eliminar}/>
                 </div>
             </section>
         

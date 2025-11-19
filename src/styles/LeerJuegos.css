@@ -1,6 +1,6 @@
 .listaJuegos{
     display: grid;
-    grid-template-columns: repeat(2, minmax(50%, 50%));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     align-items: center;
     justify-content: center;
     width: 100%;

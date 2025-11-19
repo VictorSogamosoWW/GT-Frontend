@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { obtenerComentarios, crearComentario } from "../../api/comentariosAPI";
+import '../../styles/Comentarios.css';
 
 export default function Comentarios({ idGame }) {
     const [comentarios, setComentarios] = useState([]);
@@ -39,11 +40,7 @@ export default function Comentarios({ idGame }) {
         <div className="comentarios">
             <h4>Comentarios</h4>
             <form onSubmit={enviarComentario}>
-                <textarea
-                    value={nuevoComentario}
-                    onChange={(e) => setNuevoComentario(e.target.value)}
-                    placeholder="Escribe un comentario..."
-                />
+                <textarea id="Comentario" value={nuevoComentario} onChange={(e) => setNuevoComentario(e.target.value)}placeholder="Escribe un comentario..."/>
                 <button type="submit">Enviar</button>
             </form>
 
