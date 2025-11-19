@@ -1,25 +1,23 @@
 import '../../styles/TarjetaJuego.css'
-import { useState } from 'react';
 import RatingEstrellasStatic from './RatingEstrellasStatic.jsx'
 import Comentarios from '../comentarios/Comentarios.jsx'
 
-export function TarjetaJuego({juego, onEditar, onEliminar}) {
+export function TarjetaJuego({juego, onEditar, onEliminar, isExpanded, toggleExpand}) {
     if (!juego) return null;
 
-    const [expandida, setExpandida] = useState(false);
-
-    function toggleExpansion(e) {
-        if(e.target.closest("button") || e.target.closest("textarea")) return;
-        setExpandida(!expandida);
+    function handleClick(e) {
+        if (e.target.closest("button") || e.target.closest("textarea")) return;
+        toggleExpand();
     }
 
     return (
-        <div className={'tarjeta_juego ' + (expandida ? 'expandida' : '')} onClick={toggleExpansion}>
+        <div className={'tarjeta_juego ' + (isExpanded ? 'expandida' : '')} onClick={handleClick}>
             <div className='imagen'>
                 {juego?.imagen && (
                     <img src={juego.imagen} alt="img" />
                 )}
             </div>
+
             <div className='info'>
                 <h3>{juego.name}</h3>
                 <RatingEstrellasStatic valor={juego.rating}/>
@@ -33,9 +31,9 @@ export function TarjetaJuego({juego, onEditar, onEliminar}) {
                 </div>
             </div>
 
-            {expandida && (
+            {isExpanded && (
                 <div className='comentarios_expandida' onClick={(e)=> e.stopPropagation()}>
-                    <button className="cerrar" onClick={() => setExpandida(false)}>X</button>
+                    <button className="cerrar" onClick={toggleExpand}>X</button>
                     <Comentarios idGame={juego._id} />
                 </div>
             )}

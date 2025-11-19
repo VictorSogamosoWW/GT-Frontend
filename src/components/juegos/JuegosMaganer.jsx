@@ -15,6 +15,8 @@ export function JuegosManager(){
         juego.name.toLowerCase().includes(busqueda.toLowerCase())
     );
 
+    const [tarjetaExpandida, setTarjetaExpandida] = useState(null);
+
     useEffect(()=>{
         cargarJuegos();
     }, []);
@@ -64,7 +66,7 @@ export function JuegosManager(){
     return(
         <>
             <section className='header'>
-                <Header onAgregar={() => {setMostrarForm(true); setModoEdicion(false);}}/>
+                <Header onAgregar={() => {setMostrarForm(true); setModoEdicion(false); setTarjetaExpandida(null)}}/>
             </section>
 
             {mostarForm && (
@@ -74,7 +76,7 @@ export function JuegosManager(){
             <section className='juegos'>
                 <input id="Busqueda" type="text" placeholder="Buscar juego..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)} className="input-busqueda"/>
                 <div id='juegos'>
-                    <LeerJuegos juegos={juegosFiltrados || juegos} onEditar={abrirEdicion} onEliminar={eliminar}/>
+                    <LeerJuegos juegos={juegosFiltrados || juegos} onEditar={abrirEdicion} onEliminar={eliminar} tarjetaExpandida={tarjetaExpandida} setTarjetaExpandida={setTarjetaExpandida}/>
                 </div>
             </section>
         
