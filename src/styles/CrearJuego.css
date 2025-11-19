@@ -24,6 +24,8 @@ h2 {
     width: 380px;
     position: relative;
     animation: aparecer 0.2s ease-out;
+    max-height: 90%;
+    overflow-y: auto;
 }
 
 
@@ -54,7 +56,8 @@ h2 {
 }
 
 .modal-content input,
-.modal-content select {
+.modal-content select,
+.modal-content textarea{
     padding: 8px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -72,4 +75,10 @@ h2 {
 
 .btn-guardar:hover {
     background: #1D4ED8;
+}
+
+textarea{
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }

@@ -33,6 +33,7 @@ export function TarjetaJuego({juego, onEditar, onEliminar, isExpanded, toggleExp
 
             {isExpanded && (
                 <div className='comentarios_expandida' onClick={(e)=> e.stopPropagation()}>
+                    <p>Reseña: {juego.review}</p>
                     <button className="cerrar" onClick={toggleExpand}>X</button>
                     <Comentarios idGame={juego._id} />
                 </div>

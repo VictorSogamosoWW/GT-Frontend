@@ -10,7 +10,8 @@ export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
         status: false,
         hoursPlayed: 0,
         rating: 0,
-        imagen: ""
+        imagen: "",
+        review: ""
     });
 
     useEffect(() => {
@@ -87,6 +88,8 @@ export function CrearJuego({ onCerrar, onCreando, juegoInicial }) {
                         <option value="true">Terminado</option>
                     </select>
 
+                    <label>Reseña:</label>
+                    <textarea name="review" value={nuevoJuego.review || ""} onChange={actualizarValor} />
                     <button type="submit" className="btn-guardar">Guardar</button>
                 </form>
 

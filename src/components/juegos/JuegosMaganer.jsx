@@ -52,6 +52,7 @@ export function JuegosManager(){
         setModoEdicion(true);
         setJuegoEditando(juego);
         setMostrarForm(true);
+        setTarjetaExpandida(null);
     }
 
     async function eliminar(id){
